@@ -84,7 +84,6 @@
     <script type="text/javascript" src="<?php echo asset('js/assets/js/vendor/jquery-2.1.4.min.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/assets/js/plugins.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/assets/js/main.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('js/assets/js/lib/chart-js/Chart.bundle.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/assets/js/dashboard.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/assets/js/widgets.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/assets/js/lib/vector-map/jquery.vmap.js'); ?>"></script>
