@@ -19,8 +19,18 @@
 
 
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="#"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
+
+                    <li class="active">
+                        <a href="#"> <i class="menu-icon fa fa-shopping-cart"></i>Sale </a>
+                    </li>
+
+
+                    <li class="active">
+                        <a href="#"> <i class="menu-icon fa fa-minus-circle"></i>Return</a>
+                    </li>
+
 
 
 
@@ -30,20 +40,41 @@
 
 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Items</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="tables-basic.html">Add Category</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="tables-basic.html">Add Items</a></li>
+                            <li><i class="fa fa-search"></i><a href="tables-data.html">Show Items</a></li>
                         </ul>
                     </li>
 
 
 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-home"></i>Shops</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="forms-basic.html">Add Shops</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="forms-advanced.html">Show Shops</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Employees</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus-square-o"></i><a href="forms-basic.html">Add Employees</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="forms-advanced.html">Show Employees</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Reports</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-list-alt"></i> <a href="forms-basic.html">Daily Reports</a></li>
+                            <li><i class="fa fa-list-alt"></i> <a href="forms-advanced.html">Weekly Reports</a></li>
+                            <li><i class="fa fa-list-alt"></i> <a href="forms-basic.html">Monthly Reports</a></li>
+                            <li><i class="fa fa-list-alt"></i> <a href="forms-advanced.html">Yearly Reports</a></li>
                         </ul>
                     </li>
 
@@ -52,14 +83,11 @@
 
 
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
+                        <a href="widgets.html"> <i class="menu-icon fa fa-check-square"></i>Returned Items</a>
                     </li>
 
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
-                    </li>
-                    <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
+                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Others </a>
                     </li>
 
 
