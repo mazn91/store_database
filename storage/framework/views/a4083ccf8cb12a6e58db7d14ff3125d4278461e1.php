@@ -17,7 +17,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-
+        
+        <link href="<?php echo e(asset('css/main.css')); ?>" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo asset('js/main.js'); ?>"></script>
 
         <link href="<?php echo e(asset('css/assets/css/normalize.css')); ?>" rel="stylesheet">
         <link href="<?php echo e(asset('css/assets/css/bootstrap.min.css')); ?>" rel="stylesheet">
@@ -32,11 +35,6 @@
 </head>
 <body>
 
-
-        <!-- Left Panel -->
-
-
-    <!-- Left Panel -->
       <?php echo $__env->make('layouts.nav_bar_left', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 
@@ -55,6 +53,13 @@
 
 
 
+        <?php if($flash = session("message")): ?>
+          <div class="alert alert-success" id="flash-message" role="alert">
+                
+                <?php echo e($flash); ?>
+
+          </div>
+        <?php endif; ?>
 
 
 

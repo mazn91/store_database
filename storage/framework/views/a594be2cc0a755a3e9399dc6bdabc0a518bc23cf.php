@@ -19,11 +19,11 @@
 
 
                     <li class="active">
-                        <a href="#"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="<?php echo e(route('dashboard')); ?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                     </li>
 
                     <li class="active">
-                        <a href="#"> <i class="menu-icon fa fa-shopping-cart"></i>Sale </a>
+                        <a href="#"> <i class="menu-icon fa fa-shopping-cart"></i>Sale</a>
                     </li>
 
 
@@ -35,7 +35,7 @@
 
 
 
-                    <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Employee Privileges</h3><!-- /.menu-title -->
 
 
 
@@ -62,8 +62,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Employees</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus-square-o"></i><a href="forms-basic.html">Add Employees</a></li>
-                            <li><i class="menu-icon fa fa-search"></i><a href="forms-advanced.html">Show Employees</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="<?php echo e(route('add_user')); ?>">Add Employees</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="<?php echo e(route('show_users')); ?>">Show Employees</a></li>
                         </ul>
                     </li>
 
@@ -78,16 +78,22 @@
                         </ul>
                     </li>
 
-                 
+                
 
 
+                    <h3 class="menu-title">Admin Privileges</h3>
 
                     <li>
                         <a href="widgets.html"> <i class="menu-icon fa fa-check-square"></i>Returned Items</a>
                     </li>
 
-                    <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Others </a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-asterisk"></i>Others</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus-square-o"></i> <a href="<?php echo e(route('role')); ?>">Add Roles</a></li>
+                            <li><i class="fa fa-stack-exchange"></i> <a href="forms-advanced.html">Change Roles</a></li>
+                        </ul>
                     </li>
 
 

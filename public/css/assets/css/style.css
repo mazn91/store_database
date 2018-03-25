@@ -32,6 +32,10 @@
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease; }
 
+
+
+
+
 body {
   background: #f1f2f7;
   display: table;
@@ -601,3 +605,4 @@ header .form-inline {
   display: block; }
 
 /*# sourceMappingURL=style.css.map */
+

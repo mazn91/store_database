@@ -1,9 +1,4 @@
-
-
-@extends('layouts.master')
-
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
         <div class="breadcrumbs">
@@ -18,7 +13,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active">Add Users</li>
+                            <li class="active">Register a Users</li>
                         </ol>
                     </div>
                 </div>
@@ -36,7 +31,10 @@
 
               <div class="card-body card-block">
 
-                <form action="" method="post">
+                <form method="post" action="/create/users">
+
+                	<?php echo e(csrf_field()); ?>
+
 
                   <div class="form-group">
                   	<label for="fname" class=" form-control-label"><strong>Frist Name</strong></label>
@@ -66,16 +64,14 @@
 						</select>
                   </div>
 
-
-
                   <div class="form-group">
                   	<label for="password" class=" form-control-label"><strong>Password</strong></label>
                   	<input type="password" id="password" name="password" placeholder="Enter Your Password.." class="form-control">
                   </div>
 
                   <div class="form-group">
-                  	<label for="password" class=" form-control-label"><strong>Password Again</strong></label>
-                  	<input type="password" id="password" name="password" placeholder="Enter Your Password Again.." class="form-control">
+                  	<label for="password_confirmation" class=" form-control-label"><strong>Password Again</strong></label>
+                  	<input type="password" id="password_confirmation" name="password_confirmation" placeholder="Enter Your Password Again.." class="form-control">
                   </div>
 
                   <div class="form-group">
@@ -89,13 +85,18 @@
 	                	
 	              </div>
 
+		             <div class="form-group">
+
+	        				<?php echo $__env->make('layouts.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	        		</div>
+
                 </form>
+
               </div>
-
-
-	            
 
         </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,4 +1,9 @@
-<?php $__env->startSection('content'); ?>
+
+
+@extends('layouts.master')
+
+
+@section('content')
 
 
         <div class="breadcrumbs">
@@ -33,8 +38,7 @@
 
                 <form method="post" action="/create/users">
 
-                	<?php echo e(csrf_field()); ?>
-
+                	{{ csrf_field() }}
 
                   <div class="form-group">
                   	<label for="fname" class=" form-control-label"><strong>Frist Name</strong></label>
@@ -87,7 +91,7 @@
 
 		             <div class="form-group">
 
-	        				<?php echo $__env->make('layouts.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	        				@include('layouts.errors')
 
 	        		</div>
 
@@ -98,5 +102,4 @@
         </div>
 
 
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@endsection
