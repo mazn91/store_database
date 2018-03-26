@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Role;
+use App\User;
 
 class RoleController extends Controller
 {
@@ -36,6 +37,17 @@ class RoleController extends Controller
         session()->flash('message', 'New role has been added successfully!');
 
 	    return redirect('/');
+    }
+
+
+    public function change($id, Request $request) {
+
+        $user = User::find($id);
+
+
+        $user->roles()->sync($request->role);
+
+        return redirect('/show/users');
     }
 
 

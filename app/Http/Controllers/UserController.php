@@ -120,7 +120,14 @@ class UserController extends Controller
 
         $user = User::find($id);
 
-        return view('admin.update_user', compact('user'));
+        $roles = Role::get();
+
+         foreach($user->roles as $role){
+            $user_role = $role->type;
+         }
+
+        
+        return view('admin.update_user', compact('user', 'roles', 'user_role'));
 
     }
 

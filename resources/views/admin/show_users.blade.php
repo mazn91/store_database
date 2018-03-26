@@ -41,7 +41,6 @@
                       <th scope="col">Job Title</th>
                       <th scope="col">Update</th>
                       <th scope="col">Password</th>
-                      <th scope="col">Role</th>
                       <th scope="col">Status</th>
                       
                     </tr>
@@ -56,13 +55,13 @@
 	                      <td>0{{ $user->phone }}</td>
 	                      <td>{{ ucfirst($user->gender) }}</td>
 	                      <td>
-                            <ol>
+                            
                               @foreach($user->roles as $role)
 
                                 {{ ucfirst($role->type) }}
 
                               @endforeach
-                            </ol>
+                            
                         </td>
 
 	                      <td>
@@ -81,16 +80,6 @@
                             </button>
                           </a>
 
-                        </td>
-
-                        <td>
-
-                           <a href="">
-                            <button type="submit" class="btn btn-warning btn-sm">
-                                Change
-                            </button>
-                          </a>
-                          
                         </td>
 
 	                      <td>

@@ -58,7 +58,7 @@
                         </ul>
                     </li>
 
-
+                    <?php if($admin): ?>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Employees</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -66,7 +66,7 @@
                             <li><i class="menu-icon fa fa-search"></i><a href="<?php echo e(route('show_users')); ?>">Show Employees</a></li>
                         </ul>
                     </li>
-
+                    <?php endif; ?>
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Reports</a>
@@ -79,7 +79,7 @@
                     </li>
 
                 
-
+                    <?php if($admin): ?>
 
                     <h3 class="menu-title">Admin Privileges</h3>
 
@@ -97,7 +97,7 @@
                     </li>
 
 
-                 
+                    <?php endif; ?>
 
    
                 </ul>

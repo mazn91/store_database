@@ -38,7 +38,6 @@
                       <th scope="col">Job Title</th>
                       <th scope="col">Update</th>
                       <th scope="col">Password</th>
-                      <th scope="col">Role</th>
                       <th scope="col">Status</th>
                       
                     </tr>
@@ -53,14 +52,14 @@
 	                      <td>0<?php echo e($user->phone); ?></td>
 	                      <td><?php echo e(ucfirst($user->gender)); ?></td>
 	                      <td>
-                            <ol>
+                            
                               <?php $__currentLoopData = $user->roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                                 <?php echo e(ucfirst($role->type)); ?>
 
 
                               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </ol>
+                            
                         </td>
 
 	                      <td>
@@ -79,16 +78,6 @@
                             </button>
                           </a>
 
-                        </td>
-
-                        <td>
-
-                           <a href="">
-                            <button type="submit" class="btn btn-warning btn-sm">
-                                Change
-                            </button>
-                          </a>
-                          
                         </td>
 
 	                      <td>

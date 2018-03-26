@@ -96,6 +96,81 @@
 
 	</div>
 
+
+	<div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Role</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active">Change Role</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+	  <div class="card-body card-block">
+
+	    <form method="post" action="/change/role/<?php echo e($user->id); ?>">
+
+	    	<?php echo e(csrf_field()); ?>
+
+
+		    	<div class="form-group">
+		      		<label for="phone" class=" form-control-label"><strong>Role</strong></label>
+
+		      		<select name="role" class="form-control">
+						  <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+						  		<option value="<?php echo e($role->id); ?>" 
+						  			<?php if($role->type == $user_role): ?>
+								  		selected="selected"
+								  	<?php endif; ?>>
+
+						  		<?php echo e($role->type); ?>
+
+
+						  		</option>
+
+						  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+					</select>
+				</div>
+
+
+				<div class="form-group">
+		        	<button type="submit" class="btn btn-primary btn-sm">
+		          		<i class="fa fa-dot-circle-o"></i>Change
+		        	</button>
+
+		        	<a href="/" class="btn btn-danger btn-sm">
+		          		<i class="fa fa-ban"></i>Cancel
+		        	</a>			
+	     		 </div>
+
+
+	    </form>
+	</div>    
+</div>
+
+
+
+
 <?php $__env->stopSection(); ?>
 
 
