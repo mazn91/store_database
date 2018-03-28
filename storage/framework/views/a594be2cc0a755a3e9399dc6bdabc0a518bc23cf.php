@@ -37,12 +37,19 @@
 
                     <h3 class="menu-title">Employee Privileges</h3><!-- /.menu-title -->
 
-
+                    <?php if(Auth::user()->isAdmin()): ?>
+                     <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Categories</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus-square-o"></i><a href="<?php echo e(route('category')); ?>">Add Category</a></li>
+                            <li><i class="fa fa-search"></i><a href="tables-data.html">Show Category</a></li>
+                        </ul>
+                    </li>
+                    <?php endif; ?>
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Items</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus-square-o"></i><a href="tables-basic.html">Add Category</a></li>
                             <li><i class="fa fa-plus-square-o"></i><a href="tables-basic.html">Add Items</a></li>
                             <li><i class="fa fa-search"></i><a href="tables-data.html">Show Items</a></li>
                         </ul>
@@ -58,7 +65,7 @@
                         </ul>
                     </li>
 
-                    <?php if($admin): ?>
+                    <?php if(Auth::user()->isAdmin()): ?>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Employees</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -79,7 +86,7 @@
                     </li>
 
                 
-                    <?php if($admin): ?>
+                    <?php if(Auth::user()->isAdmin()): ?>
 
                     <h3 class="menu-title">Admin Privileges</h3>
 
