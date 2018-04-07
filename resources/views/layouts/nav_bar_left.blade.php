@@ -118,7 +118,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Buyers</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus-square-o"></i><a href="{{ route('add_buyer') }}">Add Buyers</a></li>
-                            <li><i class="menu-icon fa fa-search"></i><a href="">Show Buyers</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="{{ route('show_buyers') }}">Show Buyers</a></li>
                         </ul>
                     </li>
 

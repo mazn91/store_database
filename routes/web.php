@@ -161,6 +161,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::post('/store/buyers', 'BuyerController@store');
 
+	Route::get('/show/buyers', 'BuyerController@show')->name('show_buyers');
+
+	Route::get('/activation/buyer/{id}', 'BuyerController@activation');
+
+	Route::get('/update/buyer/{id}', 'BuyerController@edit');
+
+	Route::post('/update/buyer/{id}', 'BuyerController@update');
 });
 
 
