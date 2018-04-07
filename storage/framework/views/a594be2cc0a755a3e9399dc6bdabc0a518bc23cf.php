@@ -6,8 +6,11 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <!-- <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a> -->
+
+                <a class="navbar-brand" href="./">Lumio.Light</a>
+                
             </div>
 
 
@@ -41,8 +44,43 @@
                      <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Categories</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus-square-o"></i><a href="<?php echo e(route('category')); ?>">Add Category</a></li>
-                            <li><i class="fa fa-search"></i><a href="tables-data.html">Show Category</a></li>
+
+                            <li><i class="fa fa-plus-square-o"></i>
+                                <a href="<?php echo e(route('add_category')); ?>">Add Category</a>
+                            </li>
+
+                             <li><i class="fa fa-search"></i>
+                                <a href="<?php echo e(route('show_category')); ?>">Show Category</a>
+                            </li>
+                            <hr style="background: grey">
+
+                            <li><i class="fa fa-plus-square-o"></i>
+                                <a href="<?php echo e(route('add_size')); ?>">Add Size</a>
+                            </li>
+
+                            <li><i class="fa fa-search"></i>
+                                <a href="<?php echo e(route('show_size')); ?>">Show Size</a>
+                            </li>
+                            <hr style="background: grey">
+
+                            <li><i class="fa fa-plus-square-o"></i>
+                                <a href="<?php echo e(route('add_color')); ?>">Add Color</a>
+                            </li>
+
+                            <li><i class="fa fa-search"></i>
+                                <a href=" <?php echo e(route('show_color')); ?>">Show Color</a>
+                            </li>
+                            <hr style="background: grey">r
+
+                            <li><i class="fa fa-plus-square-o"></i>
+                                <a href="<?php echo e(route('add_material')); ?>">Add Material</a>
+                            </li>
+                            
+
+                            <li><i class="fa fa-search"></i>
+                                <a href="<?php echo e(route('show_material')); ?>">Show Material</a>
+                            </li>
+
                         </ul>
                     </li>
                     <?php endif; ?>
@@ -50,8 +88,8 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Items</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus-square-o"></i><a href="tables-basic.html">Add Items</a></li>
-                            <li><i class="fa fa-search"></i><a href="tables-data.html">Show Items</a></li>
+                            <li><i class="fa fa-plus-square-o"></i><a href="<?php echo e(route('add_items')); ?>">Add Items</a></li>
+                            <li><i class="fa fa-search"></i><a href="<?php echo e(route('show_items')); ?>">Show Items</a></li>
                         </ul>
                     </li>
 
@@ -74,6 +112,15 @@
                         </ul>
                     </li>
                     <?php endif; ?>
+
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Buyers</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-plus-square-o"></i><a href="<?php echo e(route('add_buyer')); ?>">Add Buyers</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="">Show Buyers</a></li>
+                        </ul>
+                    </li>
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Reports</a>

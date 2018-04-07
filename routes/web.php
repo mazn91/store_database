@@ -57,8 +57,80 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 		// route for showing a form to add a new category
-		Route::get('/create/category', 'CategoryController@create')->name('category');
+		Route::get('/create/category', 'CategoryController@create')->name('add_category');
 		Route::post('/create/category', 'CategoryController@store');
+
+		// Route for showing the categories 
+		Route::get('/show/category', 'CategoryController@show')->name('show_category');
+
+		// Route for updating the category
+		Route::get('/update/category/{id}', 'CategoryController@edit')->name('edit_category');
+		Route::post('/update/category/{id}', 'CategoryController@update');
+
+		// route for category activation
+		Route::get('/activation/category/{id}', 'CategoryController@activation');
+
+		// route for showing a form to add items
+		Route::get('/add/items', 'ItemController@create')->name('add_items');
+
+		Route::post('/add/items', 'ItemController@store');
+
+		//route for showing items
+		Route::get('/show/items', 'ItemController@show')->name('show_items');
+
+		// route for item activation
+		Route::get('/activation/item/{id}', 'ItemController@activation');
+
+
+		// route for showing item's details
+		Route::get('/item/info/{id}', 'ItemController@show_info');
+
+		// route for editing an item
+		Route::get('/edit/item/{id}', 'ItemController@edit');
+		
+		Route::post('/update/item/{id}', 'ItemController@update');
+
+
+		// route for adding size type 
+		Route::get('/add/size', 'SizeController@create')->name('add_size');
+
+		Route::post('/add/size', 'SizeController@store');	
+
+
+		// route for adding color type
+		Route::get('/add/color', 'ColorController@create')->name('add_color');
+
+		Route::post('/add/color', 'ColorController@store');
+
+		// route for adding material type
+		Route::get('/add/material', 'MaterialController@create')->name('add_material');
+
+		Route::post('/add/material', 'MaterialController@store');
+
+
+		// routes for sizes
+		Route::get('/show/size', 'SizeController@show')->name('show_size');
+
+		Route::get('/update/size/{id}', 'SizeController@edit');
+
+		Route::post('/update/size/{id}', 'SizeController@update');
+
+
+		// routes for colors
+		Route::get('/show/color', 'ColorController@show')->name('show_color');
+
+		Route::get('/update/color/{id}', 'ColorController@edit');
+
+		Route::post('/update/color/{id}', 'ColorController@update');
+
+
+		// routes for material
+		Route::get('/show/material', 'MaterialController@show')->name('show_material');
+
+		Route::get('/update/material/{id}', 'MaterialController@edit');
+
+		Route::post('/update/material/{id}', 'MaterialController@update');
+
 
 	});
 
@@ -85,9 +157,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/password/{id}' ,'UserController@change_password');
 
 
+	Route::get('/create/buyers', 'BuyerController@create')->name('add_buyer');
 
-
-
+	Route::post('/store/buyers', 'BuyerController@store');
 
 });
 
