@@ -30,4 +30,9 @@ class Item extends Model
         return $this->belongsToMany(Order::class);
     }
 
+
+   public function baskets() {
+    return $this->hasMany(Basket::class);
+   }
+
 }

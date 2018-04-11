@@ -29,7 +29,7 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th scope="col">Number</th>
+                      <th scope="col">#</th>
                       <th scope="col">First Name</th>
                       <th scope="col">Last Name</th>
                       <th scope="col">Email</th>
@@ -45,7 +45,7 @@
                   <tbody>
                   	<?php $__currentLoopData = $buyers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$buyer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	                    <tr>
-	                      <th scope="row"><?php echo e(++$key); ?></th>
+	                      <td scope="row"><?php echo e(++$key); ?></td>
 	                      <td><?php echo e(ucfirst($buyer->fname)); ?></td>
 	                      <td><?php echo e(ucfirst($buyer->lname)); ?></td>
 	                      <td><?php echo e($buyer->email); ?></td>

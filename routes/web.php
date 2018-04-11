@@ -168,6 +168,31 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/update/buyer/{id}', 'BuyerController@edit');
 
 	Route::post('/update/buyer/{id}', 'BuyerController@update');
+
+	// route for showing sale page
+	Route::get('/sale', 'BasketController@show')->name('sale');
+
+	// route for adding items to the basket
+	Route::get('/add/basket/{id}', 'BasketController@add');
+
+	// route for candelling the current order
+	Route::get('/cancel/basket', 'BasketController@cancel')->name('cancel_order');
+
+	// delete an item from the basket
+	Route::get('/delete/basket/{id}', 'BasketController@delete');
+
+	// route fotr item discount
+	Route::get('/discount/basket/{id}', 'BasketController@discount');
+
+
+	// route for item quantity update
+	Route::post('/update/quantity/{id}', 'BasketController@update');
+
+
+	// route for sale search engien
+	Route::post('/search/item', 'BasketController@find');
+
+
 });
 
 

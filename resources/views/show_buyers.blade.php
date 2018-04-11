@@ -32,7 +32,7 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th scope="col">Number</th>
+                      <th scope="col">#</th>
                       <th scope="col">First Name</th>
                       <th scope="col">Last Name</th>
                       <th scope="col">Email</th>
@@ -48,7 +48,7 @@
                   <tbody>
                   	@foreach($buyers as $key=>$buyer)
 	                    <tr>
-	                      <th scope="row">{{ ++$key }}</th>
+	                      <td scope="row">{{ ++$key }}</td>
 	                      <td>{{ ucfirst($buyer->fname) }}</td>
 	                      <td>{{ ucfirst($buyer->lname) }}</td>
 	                      <td>{{ $buyer->email }}</td>

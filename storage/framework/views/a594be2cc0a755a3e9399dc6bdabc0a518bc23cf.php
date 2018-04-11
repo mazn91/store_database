@@ -26,7 +26,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="#"> <i class="menu-icon fa fa-shopping-cart"></i>Sale</a>
+                        <a href="<?php echo e(route('sale')); ?>"> <i class="menu-icon fa fa-shopping-cart"></i>Sale</a>
                     </li>
 
 

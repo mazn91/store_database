@@ -2,68 +2,40 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="text-center">
-                <i class="fa fa-search-plus pull-left icon"></i>
-                <h2>Invoice for purchase #33221</h2>
+<div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Sale</h1>
+                </div>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-xs-12 col-md-3 col-lg-3 pull-left">
-                    <div class="panel panel-default height">
-                        <div class="panel-heading">Billing Details</div>
-                        <div class="panel-body">
-                            <strong>David Peere:</strong><br>
-                            1111 Army Navy Drive<br>
-                            Arlington<br>
-                            VA<br>
-                            <strong>22 203</strong><br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-3 col-lg-3">
-                    <div class="panel panel-default height">
-                        <div class="panel-heading">Payment Information</div>
-                        <div class="panel-body">
-                            <strong>Card Name:</strong> Visa<br>
-                            <strong>Card Number:</strong> ***** 332<br>
-                            <strong>Exp Date:</strong> 09/2020<br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-3 col-lg-3">
-                    <div class="panel panel-default height">
-                        <div class="panel-heading">Order Preferences</div>
-                        <div class="panel-body">
-                            <strong>Gift:</strong> No<br>
-                            <strong>Express Delivery:</strong> Yes<br>
-                            <strong>Insurance:</strong> No<br>
-                            <strong>Coupon:</strong> No<br>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-md-3 col-lg-3 pull-right">
-                    <div class="panel panel-default height">
-                        <div class="panel-heading">Shipping Address</div>
-                        <div class="panel-body">
-                            <strong>David Peere:</strong><br>
-                            1111 Army Navy Drive<br>
-                            Arlington<br>
-                            VA<br>
-                            <strong>22 203</strong><br>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active">Add Items To Invoice</li>
+                    </ol>
                 </div>
             </div>
         </div>
     </div>
+
+<div class="container">
+    
     <div class="row">
-        <div class="col-md-12">
+
+
+
+
+
+
+
+
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center"><strong>Order summary</strong></h3>
+                    <h3 class="text-center"><strong>Order Summary</strong></h3>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -98,27 +70,20 @@
                                 <tr>
                                     <td class="highrow"></td>
                                     <td class="highrow"></td>
-                                    <td class="highrow text-center"><strong>Subtotal</strong></td>
+                                    <td class="highrow text-center"><strong>Total</strong></td>
                                     <td class="highrow text-right">$958.00</td>
                                 </tr>
-                                <tr>
-                                    <td class="emptyrow"></td>
-                                    <td class="emptyrow"></td>
-                                    <td class="emptyrow text-center"><strong>Shipping</strong></td>
-                                    <td class="emptyrow text-right">$20</td>
-                                </tr>
-                                <tr>
-                                    <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
-                                    <td class="emptyrow"></td>
-                                    <td class="emptyrow text-center"><strong>Total</strong></td>
-                                    <td class="emptyrow text-right">$978.00</td>
-                                </tr>
+                               
+                                
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
     </div>
 </div>
 
