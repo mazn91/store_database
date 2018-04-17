@@ -29,9 +29,12 @@
                         <a href="<?php echo e(route('sale')); ?>"> <i class="menu-icon fa fa-shopping-cart"></i>Sale</a>
                     </li>
 
+                    <li class="active">
+                        <a href="<?php echo e(route('show_orders')); ?>"> <i class="menu-icon fa  fa-archive"></i>Orders</a>
+                    </li>
 
                     <li class="active">
-                        <a href="#"> <i class="menu-icon fa fa-minus-circle"></i>Return</a>
+                        <a href="<?php echo e(route('show_returns')); ?>"> <i class="menu-icon fa fa-minus-circle"></i>Returns Status</a>
                     </li>
 
 
@@ -85,7 +88,14 @@
                     </li>
                     <?php endif; ?>
 
-                    <li class="menu-item-has-children dropdown">
+                   
+
+
+
+
+                    <?php if(Auth::user()->isAdmin()): ?>
+
+                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Items</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus-square-o"></i><a href="<?php echo e(route('add_items')); ?>">Add Items</a></li>
@@ -93,17 +103,6 @@
                         </ul>
                     </li>
 
-
-
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-home"></i>Shops</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus-square-o"></i><a href="forms-basic.html">Add Shops</a></li>
-                            <li><i class="menu-icon fa fa-search"></i><a href="forms-advanced.html">Show Shops</a></li>
-                        </ul>
-                    </li>
-
-                    <?php if(Auth::user()->isAdmin()): ?>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Employees</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -119,17 +118,12 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus-square-o"></i><a href="<?php echo e(route('add_buyer')); ?>">Add Buyers</a></li>
                             <li><i class="menu-icon fa fa-search"></i><a href="<?php echo e(route('show_buyers')); ?>">Show Buyers</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="<?php echo e(route('show_loans')); ?>">Show Loans</a></li>
                         </ul>
                     </li>
 
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Reports</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-list-alt"></i> <a href="forms-basic.html">Daily Reports</a></li>
-                            <li><i class="fa fa-list-alt"></i> <a href="forms-advanced.html">Weekly Reports</a></li>
-                            <li><i class="fa fa-list-alt"></i> <a href="forms-basic.html">Monthly Reports</a></li>
-                            <li><i class="fa fa-list-alt"></i> <a href="forms-advanced.html">Yearly Reports</a></li>
-                        </ul>
+                   <li>
+                        <a href="<?php echo e(route('date_picker')); ?>"> <i class="menu-icon fa  fa-calendar-o"></i>Reporting</a>
                     </li>
 
                 
@@ -138,15 +132,16 @@
                     <h3 class="menu-title">Admin Privileges</h3>
 
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon fa fa-check-square"></i>Returned Items</a>
+                        <a href="<?php echo e(route('return_confirmation')); ?>"> <i class="menu-icon fa fa-check-square"></i>Returned Items</a>
                     </li>
+
+                    
 
 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa  fa-asterisk"></i>Others</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus-square-o"></i> <a href="<?php echo e(route('role')); ?>">Add Roles</a></li>
-                            <li><i class="fa fa-stack-exchange"></i> <a href="forms-advanced.html">Change Roles</a></li>
                         </ul>
                     </li>
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
-
+use App\Item;
 class CategoryController extends Controller
 {
     
@@ -41,12 +41,23 @@ class CategoryController extends Controller
 
     public function show() {
 
-    	$categories = Category::orderBy('activation', 'desc')->paginate(8);
+    	$categories = Category::orderBy('activation', 'desc')->paginate(10);
 
     	return view('admin.show_category', compact('categories'));
     }
 
 
+    public function show_items($id){
+
+        $category = Category::find($id);
+
+
+        $items = Item::where('category_id', '=', $category->id)->paginate(10);
+
+ 
+
+        return view('admin.show_items', compact('items'));
+    }
 
 
     public function edit($id) {

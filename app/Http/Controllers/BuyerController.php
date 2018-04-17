@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Order;
 use App\Buyer;
+use DB;
 
 class BuyerController extends Controller
 {
@@ -53,7 +54,35 @@ class BuyerController extends Controller
 
     	$buyers = Buyer::orderBy('status', 'desc')->  paginate(10);
 
+
+
     	return view('show_buyers', compact('buyers'));
+    }
+
+
+    public function find(Request $request){
+
+         $buyers = Buyer::where('phone', '=', $request->search)->paginate(1);
+
+
+        if($buyers->count() == 1) {
+
+            return view('show_buyers', compact('buyers'));
+        }
+
+        if($buyers->count() == 0){
+
+            
+            $buyers = Buyer::where('place_name', 'like', '%' .$request->search. '%')->paginate(10);
+
+            if($buyers->count() > 0){
+
+                return view('show_buyers', compact('buyers'));
+
+            }else{
+                return redirect('/show/buyers');
+            }
+        }
     }
 
 
@@ -61,7 +90,9 @@ class BuyerController extends Controller
 
     	$buyer = Buyer::find($id);
 
-    	if($buyer->id == 1){
+
+
+    	if($buyer->status == 1){
     		$buyer->status = 0;
     	}else{
     		$buyer->status = 1;
@@ -114,6 +145,34 @@ class BuyerController extends Controller
     }
 
 
+    public function show_loans(){
+
+        $loans = DB::table('orders')
+                ->select('buyer_id','total_price', 'payment_type' , DB::raw('SUM(total_price) as total_price'))
+                ->groupBy('buyer_id')
+                ->where('payment_type', '=', 0)
+                ->get();
+
+
+        $buyers = Buyer::paginate(10);
+
+        return view('show_buyers_loan', compact('loans', 'buyers'));
+    }
+
+
+    public function confirm_loan($id){
+
+        $orders = Order::where('buyer_id', '=', $id)->where('payment_type', '=', 0)->get();
+
+        foreach ($orders as $order) {
+            
+            $order->payment_type = 1;
+
+            $order->save();
+        }
+
+        return redirect('/show/loans');
+    }
 
 
 }

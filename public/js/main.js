@@ -11,4 +11,11 @@ $(document).ready(function() {
     }
   });
 
+
+  $(".loan").click(function(){
+    if (!confirm("Are you sure you want to confirm the loan?")){
+      return false;
+    }
+  });
+
 });

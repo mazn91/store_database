@@ -40,28 +40,80 @@
 
 
                     <div class="card-header">
-                       <div  style="width: 500px; margin-left: 200px;">
 
-                            <form class="navbar-form" role="search" method="post" action="/search/item">
-                
-                                <div class="input-group add-on">
 
-                                    {{ csrf_field() }}
+                       
 
-                                  <input class="form-control" placeholder="Search" name="search" id="search" type="text" autofocus>
-                                  
-                                  <div class="input-group-btn">
-                                    <button class="btn btn-primary" type="submit" style="border-top-right-radius: 5px; margin-left: 4px;">Search</button>
-                                  </div>
+                            <div class="row">
+                               
 
-                                </div>
+                                    <form class="navbar-form" role="search" method="post" action="/search/item">
+                        
+                                        <div class="input-group add-on" style="width: 500px; margin-left: 50%" >
 
-                                
+                                            {{ csrf_field() }}
 
-                            </form>
+                                          <input class="form-control" placeholder="Item code or item name" name="search" id="search" type="text" autofocus>
+                                          
+                                          <div class="input-group-btn">
+                                            <button class="btn" type="submit" style="border-top-right-radius: 5px; margin-left: 4px; background-color: #22A7F0; color: #fff">Search</button>
+                                          </div>
+
+                                        </div>
+
+                                        
+
+                                    </form>
                             
-                        </div>
+                       
+                                
+                            </div>
+
+
+                            <div class="row" style="margin-top: 20px">
+
+
+                                    <form method="post" action="/buyer/order">
+
+                                          {{csrf_field()}}
+
+                                        <div class="input-group add-on" style="width: 500px; margin-left: 50%">
+                                            <select class="form-control" name="buyer">
+                                                <option value="0">Standard Buyer</option>
+                                                
+                                                @foreach($buyers as $buyer)
+                                                    <option value="{{$buyer->id}}">{{ $buyer->place_name }}</option>
+                                                @endforeach
+
+                                            </select>
+
+                                            <select class="form-control" name="payment">
+                                                <option value="1">Paid</option>
+                                                <option value="0">Loan</option>
+                                            </select>
+
+                                            <div class="input-group-btn">
+                                            <button class="btn" type="submit" style="border-top-right-radius: 5px; margin-left: 4px;background-color: #26C281; color: #fff">Apply</button>
+                                          </div>
+                                            
+                                         </div>
+
+                                    </form>
+                                                                
+                                
+                            </div>
+
+
+
+
+                            
+                        
+ 
+
+                        
                     </div>
+
+
 
 
 
@@ -304,8 +356,20 @@
 
 
                             <tr>
-                                <td colspan="5"><strong style="font-size: 15pt; float: right;"><span style="margin-right: 15px;">Total</span> ${{ $baskets->pluck('total_price')->sum() }}
+                                <td colspan="5"><strong style="font-size: 15pt; float: right;">
+
+                                  <span style="margin-right: 15px;">Total</span> ${{ $baskets->pluck('total_price')->sum() }}
                                 </strong></td>
+                            </tr>
+
+                            <tr>
+                                  @if($baskets->count() > 0)
+                                    @if($baskets->first()->payment_type == 0 && $basket->first()->buyer_id >0)
+                                      <td colspan="5">
+                                        <p>sell to {{ $baskets->first()->buyer->place_name }} as loan</p>
+                                      </td>
+                                    @endif
+                                  @endif
                             </tr>
                            
                             
@@ -314,7 +378,11 @@
                 </div>
 
                     <div class="panel-heading" style="padding: 10px; margin-bottom: 3px ;background-color: #26C281">
-                        <h3 class="text-center"><strong style="color: #fff">Confirm</strong></h3>
+                        <h3 class="text-center">
+                            <strong style="color: #fff">
+                                    <a href="{{ route('order_confirm') }}" style="color: #fff">Confirm</a>
+                            </strong>
+                        </h3>
                     </div>
 
                     <div class="panel-heading" style="padding: 10px; background-color: #C91F37; margin-bottom: 15px ;">
