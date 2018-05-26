@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 	{
 	   	// Route for forum to registe a user 
-		Route::get('/users', 'UserController@create')->name('add_user');
+		
 
 		// route for registering a user
 		Route::post('/create/users', 'UserController@store');
@@ -235,6 +235,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// route for confirming the loans
 	Route::get('/confirm/loan/{id}', 'BuyerController@confirm_loan');
+
+
+	Route::get('/print/invoice', 'BasketController@print');
 });
 
 
@@ -244,4 +247,7 @@ Route::get('/login', 'AuthController@show')->name('login');
 
 //route for logging a user
 Route::post('/login', 'AuthController@login');
+
+
+Route::get('/users', 'UserController@create')->name('add_user');
 

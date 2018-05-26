@@ -153,6 +153,8 @@ class BasketController extends Controller
     }
 
 
+
+
     public function find(Request $request){
 
 
@@ -180,8 +182,10 @@ class BasketController extends Controller
 
     			$baskets = Basket::get();
 
+                $buyers = Buyer::get();
 
-    			return view('sale.sale', compact('many_items', 'baskets'));
+
+    			return view('sale.sale', compact('many_items', 'baskets', 'buyers'));
 
     		}else{
     			return redirect('/sale');
@@ -189,7 +193,6 @@ class BasketController extends Controller
 
 
     	}
-
 
 
     }
@@ -271,7 +274,9 @@ class BasketController extends Controller
 
     		session()->flash('message', 'order has been confirmed!');
 
-    		return redirect('/sale');
+
+
+    		return redirect('/print/invoice');
 
 
     	}else{
@@ -282,6 +287,16 @@ class BasketController extends Controller
 
 
 
+    }
+
+
+    public function print(){
+
+        $order_number = Order::orderBy('created_at', 'desc')->first()->number;
+
+        $current_order = Order::where('number', '=', $order_number)->get();
+
+        return view('print', compact('current_order'));
     }
 
 

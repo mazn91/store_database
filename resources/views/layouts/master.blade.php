@@ -32,6 +32,9 @@
         <link href="{{ asset('css/assets/css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet">
 
 
+      
+
+
 </head>
 <body>
 

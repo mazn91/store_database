@@ -32,6 +32,9 @@
         <link href="<?php echo e(asset('css/assets/css/lib/vector-map/jqvmap.min.css')); ?>" rel="stylesheet">
 
 
+      
+
+
 </head>
 <body>
 

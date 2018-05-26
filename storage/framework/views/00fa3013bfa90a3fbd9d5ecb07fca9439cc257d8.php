@@ -204,7 +204,7 @@
                               <th scope="col">Quantity</th>
                               <th scope="col">Minimum Price</th>
                               <th scope="col">Miximum Price</th>
-                              <th scope="col">Item  Category</th>
+                              <th scope="col">Item Category</th>
                               <th scope="col">Color Category</th>
                               <th scope="col">Material Category</th>
                               
