@@ -42,15 +42,19 @@
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>
                 </div>
+
                 <div class="login-form">
-                    <form>
+
+                    <form method="post" action="/login">
+                        {{ csrf_field() }}
+
                         <div class="form-group">
                             <label>Email address</label>
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="text" class="form-control" placeholder="Email" name="email">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" name="password">
                         </div>
                         <div class="checkbox">
                             <label>
@@ -62,9 +66,16 @@
 
                         </div>
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+
+                        <div class="form-group">
+
+                            @include('layouts.errors')
+
+                        </div>
                        
                     </form>
                 </div>
+
             </div>
         </div>
     </div>

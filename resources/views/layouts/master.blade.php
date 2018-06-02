@@ -17,7 +17,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-
+        
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{!! asset('js/main.js') !!}"></script>
 
         <link href="{{ asset('css/assets/css/normalize.css') }}" rel="stylesheet">
         <link href="{{ asset('css/assets/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -32,11 +35,6 @@
 </head>
 <body>
 
-
-        <!-- Left Panel -->
-
-
-    <!-- Left Panel -->
       @include('layouts.nav_bar_left')
 
 
@@ -55,6 +53,12 @@
 
 
 
+        @if($flash = session("message"))
+          <div class="alert alert-success" id="flash-message" role="alert">
+                
+                {{ $flash }}
+          </div>
+        @endif
 
 
 
@@ -84,7 +88,6 @@
     <script type="text/javascript" src="{!! asset('js/assets/js/vendor/jquery-2.1.4.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/assets/js/plugins.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/assets/js/main.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('js/assets/js/lib/chart-js/Chart.bundle.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/assets/js/dashboard.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/assets/js/widgets.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/assets/js/lib/vector-map/jquery.vmap.js') !!}"></script>
