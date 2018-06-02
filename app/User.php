@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Auth;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -49,28 +51,6 @@ class User extends Authenticatable
 
         return false;
     }
-
-
-    public function admin() {
-
-        $user_id = Auth::user()->id;
-
-        $user = User::find($user_id);
-
-
-        foreach ($user->roles()->get() as $role)
-        {
-            if ($role->type == 'admin')
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-
-
 
 
 }

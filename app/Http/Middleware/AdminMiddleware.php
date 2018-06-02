@@ -17,9 +17,9 @@ class AdminMiddleware
      */
 
 
+
     public function handle($request, Closure $next)
     {
-
 
         $user_id = Auth::user()->id;
 

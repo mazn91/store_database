@@ -46,7 +46,6 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('/reset/password/{id}', 'AuthController@reset');
 
 
-
 		//route for showing users
 		Route::get('/show/users', 'UserController@show')->name('show_users');
 
@@ -56,14 +55,16 @@ Route::group(['middleware' => 'auth'], function () {
 		//route for updating the user
 		Route::get('/update/user/{id}', 'UserController@show_update_user');
 
+
+		// route for showing a form to add a new category
+		Route::get('/create/category', 'CategoryController@create')->name('category');
+		Route::post('/create/category', 'CategoryController@store');
+
 	});
 
 
-    
-
 	// Route for dashboard
     Route::get('/', 'DashboardController@index')->name('dashboard');
-
 
 	// route for logging out a user
 	Route::get('/logout', 'AuthController@logout')->name('logout');

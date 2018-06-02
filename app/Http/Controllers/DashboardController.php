@@ -14,6 +14,7 @@ class DashboardController extends Controller
 
     	$admin = auth::user()->isAdmin();
 
+
     	return view('dashboard', compact('admin'));
     }
 }
