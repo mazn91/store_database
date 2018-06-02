@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Item;
 use App\Basket;
 use App\Order;
+use Auth;
 use Redirect;
+use Carbon\Carbon;
+use App\Buyer;
 
 class BasketController extends Controller
 {	
@@ -15,13 +18,16 @@ class BasketController extends Controller
     public function show(){
     	
 
-    	$items = Item::orderBy('activation', 'desc')->  paginate(10);
+    	$items = Item::where('activation', '=', 1)->orderBy('activation', 'desc')->  paginate(10);
 
     	$baskets = Basket::get();
 
     	$many_items = [];
 
-    	return view('sale.sale', compact('items', 'baskets', 'many_items'));
+    	$buyers = Buyer::where('status', '=', 1)->get();
+
+
+    	return view('sale.sale', compact('items', 'baskets', 'many_items', 'buyers'));
     }
 
 
@@ -74,11 +80,11 @@ class BasketController extends Controller
 
     	if(is_null($order)){
 
-    		$basket->order_number = 1000;
+    		$basket->order_number = 10;
 
     	}else{
 
-    		$basket->order_number = 1000 + $order->id;
+    		$basket->order_number = 10 + $order->id;
 
     	}
 
@@ -147,6 +153,8 @@ class BasketController extends Controller
     }
 
 
+
+
     public function find(Request $request){
 
 
@@ -174,8 +182,10 @@ class BasketController extends Controller
 
     			$baskets = Basket::get();
 
+                $buyers = Buyer::get();
 
-    			return view('sale.sale', compact('many_items', 'baskets'));
+
+    			return view('sale.sale', compact('many_items', 'baskets', 'buyers'));
 
     		}else{
     			return redirect('/sale');
@@ -185,10 +195,139 @@ class BasketController extends Controller
     	}
 
 
+    }
+
+
+
+
+    public function order(){
+
+    	$baskets = Basket::get();
+
+
+    	if($baskets->count() > 0){
+
+    		foreach ($baskets as $item) {
+
+    			
+
+                // lower the quantity from item's inventory
+                // check if the order items is less than the inventory then subtract it 
+                // if it is zero then deactivate it and make it out of stock
+
+                $inventory = Item::find($item->item_id);
+
+                if($item->quantity <= $inventory->quantity){
+
+                    $order = new Order;
+                    
+                    $order->number = $item->order_number;
+                    
+                    $order->quantity = $item->quantity;
+                    $inventory->quantity = $inventory->quantity - $item->quantity;
+
+                    $inventory->save();
+
+                    $order->price = $item->price;
+                    $order->total_price = $item->total_price;
+
+                    $order->profit = ($item->price - $item->item->cost) * $item->quantity;
+
+                    $order->payment_type = 1;
+                    $order->user_id = auth::user()->id;
+                    $order->item_id = $item->item_id;
+                    $order->buyer_id = $item->buyer_id;
+                    $order->payment_type = $item->payment_type;
+
+                    $date = carbon::now();
+
+                    $order->end_warranty = $date->addYears($item->item->warranty);
+
+                    // extra checking if an item with the same order number exists then dont save it again
+                    // in case a dublicate happens
+
+
+                    $order->save();
+
+                     $item_id = $item->item_id;
+
+                        $order->items()->attach($item_id);
+
+                        // delete the row in the basket
+                        $item->delete();
+
+                }else{
+
+                    session()->flash('message', 'Item low in quantity!');
+                    return redirect('/sale');
+                }
+
+                if($inventory->quantity == 0){
+                    $inventory->activation = 0;
+                    $inventory->stock = 0;
+                    $inventory->save();
+                }
+
+    		}
+
+    		/*Basket::truncate();;*/
+
+    		session()->flash('message', 'order has been confirmed!');
+
+
+
+    		return redirect('/print/invoice');
+
+
+    	}else{
+
+    		session()->flash('message', 'The basket is empty!');
+    		return redirect('/sale');
+    	}
+
+
 
     }
 
 
+    public function print(){
+
+        $order_number = Order::orderBy('created_at', 'desc')->first()->number;
+
+        $current_order = Order::where('number', '=', $order_number)->get();
+
+        return view('print', compact('current_order'));
+    }
+
+
+
+    public function type(Request $request) {
+
+    	$baskets = Basket::get();
+
+    	if($request->buyer == 0 && $request->payment == 1){
+
+    		session()->flash('message', 'standard buyer with paid payment method is already applied!');
+
+    		return redirect('/sale');
+    	}
+
+    	foreach ($baskets as $item) {
+    		
+    		$item->buyer_id = $request->buyer;
+    		$item->payment_type = $request->payment;
+
+    		$item->save();
+
+    	}
+
+    	session()->flash('message', 'applied successfully!');
+    	return redirect('/sale');
+    }
+
+
+
+    
 
 
 }

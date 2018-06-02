@@ -24,6 +24,29 @@
         <div class="card">
             <div class="card-header">
                 <strong class="card-title">Buyers</strong>
+
+
+                <div class="row">
+
+                        <form class="navbar-form" role="search" method="post" action="/find/buyer">
+            
+                            <div class="input-group add-on" style="width: 500px; margin-left: 50%" >
+
+                                <?php echo e(csrf_field()); ?>
+
+
+                              <input class="form-control" placeholder="Shop name or phone number" name="search" id="search" type="text" autofocus>
+                              
+                              <div class="input-group-btn">
+                                <button class="btn" type="submit" style="border-top-right-radius: 5px; margin-left: 4px; background-color: #22A7F0; color: #fff">Search</button>
+                              </div>
+
+                            </div>    
+
+                        </form>
+  
+                </div>
+
             </div>
             <div class="card-body">
                 <table class="table table-bordered">
@@ -39,7 +62,7 @@
                       <th scope="col">Shop Name</th>
                       <th scope="col">Update</th>
                       <th scope="col">Status</th>
-                      
+                     
                     </tr>
                   </thead>
                   <tbody>
@@ -58,8 +81,8 @@
 	                      	<a href="/update/buyer/<?php echo e($buyer->id); ?>">
 	                      		<button type="submit" class="btn btn-primary btn-sm">
         				          		Update
-        				        </button>
-        				     </a>
+        				            </button>
+        				          </a>
 	                      </td>
 
 
@@ -78,6 +101,7 @@
 	                      	
 
 	                      </td>
+                        
 
 	                    </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

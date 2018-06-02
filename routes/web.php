@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 	{
 	   	// Route for forum to registe a user 
-		Route::get('/users', 'UserController@create')->name('add_user');
+		
 
 		// route for registering a user
 		Route::post('/create/users', 'UserController@store');
@@ -63,6 +63,9 @@ Route::group(['middleware' => 'auth'], function () {
 		// Route for showing the categories 
 		Route::get('/show/category', 'CategoryController@show')->name('show_category');
 
+		// route to show the categories' items 
+		Route::get('/show/category/item/{id}', 'CategoryController@show_items');
+
 		// Route for updating the category
 		Route::get('/update/category/{id}', 'CategoryController@edit')->name('edit_category');
 		Route::post('/update/category/{id}', 'CategoryController@update');
@@ -77,6 +80,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 		//route for showing items
 		Route::get('/show/items', 'ItemController@show')->name('show_items');
+
+		//route for searching for an item
+		Route::post('/find/item', 'ItemController@find');
 
 		// route for item activation
 		Route::get('/activation/item/{id}', 'ItemController@activation');
@@ -131,6 +137,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 		Route::post('/update/material/{id}', 'MaterialController@update');
 
+		Route::get('/return/confirmation', 'ReturnedController@confirmation')->name('return_confirmation');
+
+		Route::get('/return/confirm/all', 'ReturnedController@confirm_all');
+
+
 
 	});
 
@@ -163,6 +174,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/show/buyers', 'BuyerController@show')->name('show_buyers');
 
+	Route::post('/find/buyer', 'BuyerController@find');
+
 	Route::get('/activation/buyer/{id}', 'BuyerController@activation');
 
 	Route::get('/update/buyer/{id}', 'BuyerController@edit');
@@ -193,6 +206,38 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/search/item', 'BasketController@find');
 
 
+	// route for ordering 
+	Route::get('/confirm/order', 'BasketController@order')->name('order_confirm');
+
+	// route for identifying a buyer with payment type
+	Route::post('/buyer/order', 'BasketController@type');
+
+	//route for finding orders 
+	Route::get('/show/orders', 'OrderController@show')->name('show_orders');
+
+	Route::post('/find/order', 'OrderController@find');
+
+	Route::get('/return/item/{id}', 'ReturnedController@create');
+
+	Route::post('/return/item', 'ReturnedController@store');
+
+	Route::get('/return/all/{id}', 'ReturnedController@return_all')->name('return_all');
+
+	Route::get('/show/returns', 'ReturnedController@show')->name('show_returns');
+
+		// route for reporting
+	Route::get('/pick/date', 'ReportController@show')->name('date_picker');
+
+	Route::post('/show/report', 'ReportController@report');
+
+	// route for showing all the loans
+	Route::get('/show/loans', 'BuyerController@show_loans')->name('show_loans');
+
+	// route for confirming the loans
+	Route::get('/confirm/loan/{id}', 'BuyerController@confirm_loan');
+
+
+	Route::get('/print/invoice', 'BasketController@print');
 });
 
 
@@ -202,4 +247,7 @@ Route::get('/login', 'AuthController@show')->name('login');
 
 //route for logging a user
 Route::post('/login', 'AuthController@login');
+
+
+Route::get('/users', 'UserController@create')->name('add_user');
 

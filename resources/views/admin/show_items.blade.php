@@ -18,6 +18,7 @@
                         <li class="active">Show Items</li>
                     </ol>
                 </div>
+
             </div>
         </div>
     </div>
@@ -29,7 +30,30 @@
         <div class="card">
             <div class="card-header">
                 <strong class="card-title">Items</strong>
+
+                  <div class="row">
+
+                        <form class="navbar-form" role="search" method="post" action="/find/item">
+            
+                            <div class="input-group add-on" style="width: 500px; margin-left: 50%" >
+
+                                {{ csrf_field() }}
+
+                              <input class="form-control" placeholder="Item code or item name" name="search" id="search" type="text" autofocus>
+                              
+                              <div class="input-group-btn">
+                                <button class="btn" type="submit" style="border-top-right-radius: 5px; margin-left: 4px; background-color: #22A7F0; color: #fff">Search</button>
+                              </div>
+
+                            </div>    
+
+                        </form>
+  
+                </div>
+
+
             </div>
+
             <div class="card-body">
                 <table class="table table-bordered">
                   <thead>

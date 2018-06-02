@@ -10,4 +10,8 @@ class Basket extends Model
     	return $this->belongsTo(Item::class);
     }
 
+    public function buyer(){
+    	return $this->belongsTo(Buyer::class);
+    }
+
 }

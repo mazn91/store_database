@@ -16,4 +16,12 @@ class Order extends Model
     	return $this->belongsTo(Buyer::class);
     } 
     
+    public function user(){
+    	return $this->belongsTo(User::class);
+    }
+
+    public function item(){
+    		return $this->belongsTo(Item::class);
+    }
+
 }

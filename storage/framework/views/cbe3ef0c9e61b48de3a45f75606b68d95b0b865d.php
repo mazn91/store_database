@@ -43,7 +43,15 @@
                   	<?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	                    <tr>
 	                      <th scope="row"><?php echo e(++$key); ?></th>
-	                      <td><?php echo e(ucfirst($category->name)); ?></td>
+
+                       
+                          <td>
+                              <a href="/show/category/item/<?php echo e($category->id); ?>">
+                                  <?php echo e(ucfirst($category->name)); ?>  
+                              </a>
+                          </td>  
+                      
+	                      
 	                      <td><?php echo e($category->description); ?></td>
 	                      <td>
 	                      	<a href="/update/category/<?php echo e($category->id); ?>">

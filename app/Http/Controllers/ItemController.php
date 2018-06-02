@@ -81,10 +81,44 @@ class ItemController extends Controller
 
     public function show(){
 
-        $items = Item::orderBy('activation', 'desc')->  paginate(10);
+        $items = Item::orderBy('activation', 'desc')->paginate(10);
 
         return view('admin.show_items', compact('items'));
 
+    }
+
+
+    public function find(Request $request){
+
+        $this->validate(request(),[
+
+            'search' => 'required'
+        ]);
+
+
+        $items = Item::where('code', '=', $request->search)->paginate(1);
+
+
+        if($items->count() == 1) {
+
+            return view('admin.show_items', compact('items'));
+        }
+
+        if($items->count() == 0){
+
+            
+            $items = Item::where('name', 'like', '%' .$request->search. '%')->paginate(10);
+
+            if($items->count() > 0){
+
+                return view('admin.show_items', compact('items'));
+
+            }else{
+                return redirect('/show/items');
+            }
+
+
+        }
     }
 
 
@@ -202,6 +236,11 @@ class ItemController extends Controller
         $item->material_id = $request->material_id;
         $item->size_id = $request->size_id;
 
+        if($item->quantity > 0 ){
+
+            $item->activation = 1;
+            $item->stock = 1;
+        }
 
         $item->save();
 

@@ -46,7 +46,15 @@
                   	@foreach($categories as $key=>$category)
 	                    <tr>
 	                      <th scope="row">{{ ++$key }}</th>
-	                      <td>{{ ucfirst($category->name) }}</td>
+
+                       
+                          <td>
+                              <a href="/show/category/item/{{ $category->id }}">
+                                  {{ ucfirst($category->name) }}  
+                              </a>
+                          </td>  
+                      
+	                      
 	                      <td>{{ $category->description }}</td>
 	                      <td>
 	                      	<a href="/update/category/{{$category->id}}">
