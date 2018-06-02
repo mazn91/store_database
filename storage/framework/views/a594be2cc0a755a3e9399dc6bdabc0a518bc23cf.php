@@ -26,7 +26,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="#"> <i class="menu-icon fa fa-shopping-cart"></i>Sale</a>
+                        <a href="<?php echo e(route('sale')); ?>"> <i class="menu-icon fa fa-shopping-cart"></i>Sale</a>
                     </li>
 
 
@@ -118,7 +118,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Buyers</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-plus-square-o"></i><a href="<?php echo e(route('add_buyer')); ?>">Add Buyers</a></li>
-                            <li><i class="menu-icon fa fa-search"></i><a href="">Show Buyers</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="<?php echo e(route('show_buyers')); ?>">Show Buyers</a></li>
                         </ul>
                     </li>
 
