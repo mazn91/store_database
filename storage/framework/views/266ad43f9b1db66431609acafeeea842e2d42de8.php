@@ -58,11 +58,9 @@
                             <input type="password" class="form-control" placeholder="Password" name="password">
                         </div>
                         <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Remember Me
-                            </label>
+                           
                             <label class="pull-right">
-                                <a href="#">Forgotten Password?</a>
+                                <a href="#">Forgotten Password? Contact Admin!</a>
                             </label>
 
                         </div>

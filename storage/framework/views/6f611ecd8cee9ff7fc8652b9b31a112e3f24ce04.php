@@ -28,7 +28,7 @@
 
               <div class="card-body card-block">
 
-                <form method="post" action="">
+                <form method="post" action="/create/category">
 
                 	<?php echo e(csrf_field()); ?>
 
@@ -38,6 +38,14 @@
                   	<input type="text" id="name" name="name" placeholder="Enter Category Name.." class="form-control">
                   </div>
                   
+
+                  <div class="form-group">
+                  	<label for="description" class=" form-control-label"><strong>Category Description</strong></label>
+                  	<textarea type="text" id="description" name="description" placeholder="Optional, Category Description.." class="form-control"></textarea>
+                  </div>
+                  
+
+
                   
                   <div class="form-group">
 	                	<button type="submit" class="btn btn-primary btn-sm">
